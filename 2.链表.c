@@ -29,12 +29,48 @@ void listNode(Node*L){
     }
     printf("\n");
 }
-//单链表尾插法
-
+//单链表尾插法//找到尾节点
+Node* get_tail(Node* L){
+    Node*p=L;
+    while(p->next!=NULL){
+        p=p->next;
+    }
+    return p;
+}
+Node *insertTail(Node* Tail,ElemType e){
+    Node*p=(Node*)malloc(sizeof(Node));
+    p->data=e;
+    Tail->next=p;
+    p->next=NULL;
+    return p;//返回新的尾节点
+}
+//在指定位置插入数据
+int insertNode(Node*L,int pos,ElemType e){
+    Node *p=L;//找到前驱节点
+    int i=0;
+    while(i<pos-1){
+        p=p->next;
+        i++;
+        if(p==NULL){
+            return 0;
+        }
+    }
+    Node*q=(Node*)malloc(sizeof(Node));
+    q->data=e;
+    q->next=p->next;
+    p->next=q;
+    return 0;
+}
 int main(){
     Node*list=initlist();
-    insertHead(list,10);
-    insertHead(list,20);
+    // insertHead(list,10);
+    // insertHead(list,20);
+    Node*Tail=get_tail(list);
+    Tail=insertTail(Tail,10);
+    Tail=insertTail(Tail,20);
+    Tail=insertTail(Tail,30);
+    listNode(list);
+    insertNode(list,2,15);
     listNode(list);
     return 1;
 }
