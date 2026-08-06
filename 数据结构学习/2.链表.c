@@ -61,6 +61,45 @@ int insertNode(Node*L,int pos,ElemType e){
     p->next=q;
     return 0;
 }
+//在指定位置删除数据
+int deleteNode(Node*L,int pos){
+    Node* p=L;
+    int i=0;
+    while(i<pos-1){
+        p=p->next;
+        i++;
+    }//p是要删除位置的前一个元素
+    if(p->next==NULL){
+        printf("要删除位置错误\n");
+        return 0;
+    }
+    Node* q=p->next;//q是要删除的元素
+    p->next=q->next;
+    //printf("被删除的数据%d\n",q->data);
+    free(q);
+    return 1;
+}
+//获取链表长度
+int listlength(Node*L){
+    Node*p=L;
+    int len=0;
+    while(p->next!=NULL){
+        p=p->next;
+        len++;
+    }
+    return len;
+}
+//释放链表
+void freelist(Node*L){
+    Node* p=L->next;
+    Node*q;
+    while(p->next!=NULL){
+        q=p->next;
+        free(p);
+        p=q;
+    }
+    L->next=NULL;
+}
 int main(){
     Node*list=initlist();
     // insertHead(list,10);
@@ -72,5 +111,10 @@ int main(){
     listNode(list);
     insertNode(list,2,15);
     listNode(list);
+    deleteNode(list,2);
+    listNode(list);
+    printf("释放之前链表长度%d\n",listlength(list));
+    freelist(list);
+    printf("释放之后链表长度%d\n",listlength(list));
     return 1;
 }
