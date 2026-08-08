@@ -53,7 +53,7 @@ Node* insertTail(Node*Tail,Elemtype e){
     p->next=NULL;
     return p;
 }
-Node*listNode(Node*L){
+void listNode(Node*L){
     Node*p=L->next;
     while(p!=NULL){
         printf("%d ",p->data);
