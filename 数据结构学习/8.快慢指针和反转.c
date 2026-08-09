@@ -40,13 +40,23 @@ Node*insertTail(Node*tail,Elemtype e){
     return p;
 }
 void reorderlist(Node*L){
-    Node*fast=L->next;
+    if(L->next==NULL||L->next->next==NULL){
+        return;
+    }
+    //当要反转的是偶数个节点时
+    Node*fast=L;
     Node*slow=L;
-    while(fast->next->next!=NULL&&fast->next!=NULL){
+    while(fast!=NULL&&fast->next!=NULL){
         fast=fast->next->next;
         slow=slow->next;
     }
-    
+    //当要反转的是奇数个节点时
+    // Node*fast=L->next;
+    // Node*slow=L;
+    // while(fast->next!=NULL&&fast->next->next!=NULL){
+    //     fast=fast->next->next;
+    //     slow=slow->next;
+    // }
     Node*first=NULL;
     Node*second=slow->next;
     slow->next=NULL;
