@@ -45,7 +45,7 @@ Node*insertTail(Node*tail,Elemtype e){
 int insertNode(Node*L,int pos,Elemtype e){
     Node*p=L;
     int i=0;
-    while(i<pos){
+    while(i<pos-1){
         p=p->next;
         i++;
         if(p==NULL){
@@ -71,6 +71,38 @@ void listNode(Node*L){
     }
     printf("\n");
 }
+//双向链表删除节点
+int deleteNode(Node*L,int pos){
+    Node*p=L;
+    int i=0;
+    while(i<pos-1){
+        p=p->next;
+        i++;
+        if(p==NULL){
+            return 0;
+        }
+    }
+    if(p->next==NULL){
+        printf("删除位置错误\n");
+        return 0;
+    }
+    Node*q=p->next;
+    p->next=q->next;
+    q->next->prev=p;
+    free(q);
+    return 1;
+}
+//释放链表
+void freelist(Node*L){
+    Node*p=L->next;
+    Node*q;
+    while(p->next!=NULL){
+        q=p->next;
+        free(p);
+        p=q;
+    }
+    L->next=NULL;
+}
 int main(){
     Node*list=initlist();
     insertHead(list,10);
@@ -84,5 +116,8 @@ int main(){
     //listNode(list);
     insertNode(list,2,15);
     listNode(list);
+    deleteNode(list,2);
+    listNode(list);
+    freelist(list);
     return 0;
 }

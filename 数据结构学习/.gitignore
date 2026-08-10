@@ -3,3 +3,6 @@
 
 # VS Code 配置
 .vscode/
+
+# Code Runner 临时文件
+tempCodeRunnerFile.*
