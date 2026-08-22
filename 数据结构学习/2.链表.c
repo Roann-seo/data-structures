@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>//这个是malloc的头文件
+//单链表的定义
+//单链表的特点是插入和删除操作比较频繁，长度变化比较大
 typedef int ElemType;
 typedef struct node{
     ElemType data;

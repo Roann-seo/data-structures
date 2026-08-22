@@ -1,5 +1,6 @@
 #include<stdio.h>
 //顺序表的定义
+//长度变化不大，很少进行插入和删除操作
 #define MAXSIZE 100
 typedef int Elemtype;
 // typedef struct{

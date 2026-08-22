@@ -25,6 +25,7 @@ struct ListNode* deleteDuplicates(struct ListNode* head) {
     if(head==NULL){
         return NULL;
     }
+    //双指针
     struct ListNode*p=head;
     struct ListNode*q=head->next;
     while(q!=NULL){
@@ -41,4 +42,29 @@ struct ListNode* deleteDuplicates(struct ListNode* head) {
         }
     }
     return head;
+    //单指针
+    struct ListNode*cur=head;
+    while(cur->next!=NULL){
+        if(cur->val==cur->next->val){
+            cur->next=cur->next->next;
+        }else{
+            cur=cur->next;
+        }
+    }
+    return head;
+}
+
+
+int main(){
+    // 构造 1->1->2
+    struct ListNode n3 = {2, NULL};
+    struct ListNode n2 = {1, &n3};
+    struct ListNode n1 = {1, &n2};
+
+    struct ListNode *res = deleteDuplicates(&n1);
+    for(struct ListNode *p = res; p != NULL; p = p->next){
+        printf("%d ", p->val);
+    }
+    printf("\n");
+    return 0;
 }
