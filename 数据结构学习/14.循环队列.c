@@ -20,7 +20,7 @@ int equeue(Queue*q,Elemtype e){
         printf("满了\n");
         return 0;
     }
-    q->rear[q->data]=e;
+    q->data[q->rear]=e;
     q->rear=(q->rear+1)%MAXSIZE;
     return 1;
 }
