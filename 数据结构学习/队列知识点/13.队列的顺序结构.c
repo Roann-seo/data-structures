@@ -2,15 +2,28 @@
 #include<stdlib.h>
 #define MAXSIZE 100
 typedef int Elemtype;
-typedef struct{
-    Elemtype data[MAXSIZE];
+// typedef struct{
+//     Elemtype data[MAXSIZE];
+//     int front;
+//     int rear;
+// }Queue;
+// //初始化
+// void initQueue(Queue*q){
+//     q->front=0;
+//     q->rear=0;
+// }
+//队列的顺序结构 动态内存分配
+typedef struct {
+    Elemtype *data;
     int front;
     int rear;
 }Queue;
-//初始化
-void initQueue(Queue*q){
+Queue*initQueue(){
+    Queue*q=(Queue*)malloc(sizeof(Queue));
+    q->data=(Elemtype*)malloc(sizeof(Elemtype)*MAXSIZE);
     q->front=0;
     q->rear=0;
+    return q;
 }
 //判断队列是否为空
 int isempty(Queue *q){
