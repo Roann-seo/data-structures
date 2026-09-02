@@ -17,6 +17,7 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 #include<stddef.h>
+#include<stdlib.h>
 struct ListNode {
     int val;
  struct ListNode *next;
