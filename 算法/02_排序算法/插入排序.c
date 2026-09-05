@@ -1,4 +1,5 @@
 #include<stdio.h>
+//相当于扑克牌
 void insertsort(int arr[],int n){
     for(int i=1;i<n;i++){
         for(int j=i-1;j>=0&&arr[j]>arr[j+1];j--){
