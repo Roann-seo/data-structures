@@ -7,7 +7,7 @@ long long merge(int arr[],int left,int mid,int right){
     int *temp=(int *)malloc(sizeof(int)*(right-left+1));
     long long smallsum=0;
     while(i<=mid&&j<=right){
-        if(arr[i]<=arr[j]){
+        if(arr[i]<arr[j]){
             smallsum+=arr[i]*(right-j+1);
             temp[k++]=arr[i++];
         }

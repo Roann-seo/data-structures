@@ -67,3 +67,31 @@ bool isPalindrome(struct ListNode* head) {
     }
     return true;
 }
+//方法二：利用栈空间
+bool isPalindrome(struct ListNode* head){
+    if(head==NULL||head->next==NULL){
+        return 1;
+    }
+    int cnt=0;
+    struct ListNode*p=head;
+    while(p!=NULL){
+        cnt++;
+        p=p->next;
+    }
+    p=head;
+    int *stack=(int *)malloc(sizeof(int)*cnt);
+    while(p!=NULL){
+        push(p->val);
+        p=p->next;
+    }
+    p=head;
+    while(p!=NULL){
+        if(p->val!=pop()){
+            return false;
+        }
+        p=p->next;
+    }
+    free(stack);
+    return true;
+}
+// 方法3：O (1) 空间
