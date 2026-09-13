@@ -78,7 +78,7 @@ int* postorderTraversal(struct TreeNode* root, int* returnSize){
         }
         root=stack[--top];
         if(root->right==NULL||prev==root->right){
-            res[(*returnSize)++]=root;
+            res[(*returnSize)++]=root->val;
             prev=root;
             root=NULL;
         }else{
