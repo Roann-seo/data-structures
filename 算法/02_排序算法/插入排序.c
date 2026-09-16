@@ -2,12 +2,13 @@
 //相当于扑克牌
 void insertsort(int arr[],int n){
     for(int i=1;i<n;i++){
-        for(int j=i-1;j>=0&&arr[j]>arr[j+1];j--){
-            //往前换换到前一个数比后一个数小再停止
-            int temp=arr[j];
-            arr[j]=arr[j+1];
-            arr[j+1]=temp;
+        int temp=arr[i];
+        int j;
+        for( j=i-1;j>=0&&arr[j]>temp;j--){
+            //往后挪
+            arr[j+1]=arr[j];
         }
+        arr[j+1]=temp;//放到空位上
     }
 }
 int main()

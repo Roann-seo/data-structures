@@ -94,4 +94,4 @@ bool isPalindrome(struct ListNode* head){
     free(stack);
     return true;
 }
-// 方法3：O (1) 空间
+

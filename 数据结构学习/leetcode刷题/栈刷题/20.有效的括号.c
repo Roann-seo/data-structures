@@ -7,6 +7,7 @@
 // 每个右括号都有一个对应的相同类型的左括号。
 #include<stdio.h>
 #include<stdbool.h>
+#include<stdlib.h>
 bool isValid(char* s) {
     char stack[10000];
     int top=0;
