@@ -30,7 +30,7 @@ void InsertSqPoly(Sqlist *L, int c, int e){
     }
     //系数不同，寻找插入位置,降序
     int pos=0;
-    while(pos<L->length&&pos<L->length){
+    while(pos<L->length&&L->data[pos].exp>e){
         pos++;
     }
     for(int j=L->length;j>pos;j--){

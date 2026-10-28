@@ -1,8 +1,8 @@
-# n=input("请输入黄河干流全长(公里):")
-# #字符串切片反转
-# rev_n=n[::-1]
-# #输出
-# print(f"黄河干流全长的反序数为:{rev_n}")
+n=input("请输入黄河干流全长(公里):")
+#字符串切片反转
+rev_n=n[::-1]
+#输出
+print(f"黄河干流全长的反序数为:{rev_n}")
 # #202519019 梁欣
 
 
@@ -15,13 +15,14 @@
 # # #202519019 梁欣
 
 
-import math
-d1=float(input("请输入花园口监测站水位的五个监测数据："))
-d2=float(input())
-d3=float(input())
-d4=float(input())
-d5=float(input())
-avg=(d1+d2+d3+d4+d5)/5
-sum_sq=(d1-avg)**2+(d2-avg)**2+(d3-avg)**2+(d4-avg)**2+(d5-avg)**2
-std=math.sqrt(sum_sq/5)
-print(f"水位的标准差为：{std}")
+# import math
+# d1=float(input("请输入花园口监测站水位的五个监测数据："))
+# d2=float(input())
+# d3=float(input())
+# d4=float(input())
+# d5=float(input())
+# avg=(d1+d2+d3+d4+d5)/5
+# sum_sq=(d1-avg)**2+(d2-avg)**2+(d3-avg)**2+(d4-avg)**2+(d5-avg)**2
+# std=math.sqrt(sum_sq/5)
+# print(f"水位的标准差为：{std}")
+# #202519019 梁欣
